@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/Login.css">
+
+</head>
+
+<body>
+
+	<nav>
+<!--		<li><a href="Home_Login.php"><div class="logo">Comuthor</div></a></li>-->
+	</nav>
+
+</body>
+
+<body>
+
+
+	<div class="row g-0 app-auth-wrapper">
+	    <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+		    <div class="d-flex flex-column align-content-end">
+			    <div class="app-auth-body mx-auto">
+
+					<h2 class="header">Sign in</h2>
+			        <div class="auth-form-container text-start">
+						<form action="" method="POST" class="auth-form login-form">
+
+<!--						<?php if(isset($_SESSION['error'])) { ?>
+								<div class="alert alert-danger" role="alert">
+									<?php
+										echo $_SESSION['error'];
+										unset($_SESSION['error']);
+									?>
+								</div>
+							<?php } ?>
+
+							<?php if(isset($_SESSION['success'])) { ?>
+								<div class="alert alert-success" role="alert">
+									<?php
+										echo $_SESSION['success'];
+										unset($_SESSION['success']);
+									?>
+								</div>
+							<?php } ?>-->
+
+							<div class="email mb-3">
+								<label class="sr-only">Email</label>
+								<input name="email" type="email" class="form-control" placeholder="Email" required="required">
+							</div><!--//form-group-->
+							<div class="password mb-3">
+								<label class="sr-only">Password</label>
+								<input name="password" type="password" class="form-control" placeholder="Password" required="required">
+								<div class="extra mt-3 row justify-content-between">
+									<div class="col-6">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="RememberPassword">
+											<label class="form-check-label" for="RememberPassword">Remember me</label>
+										</div>
+									</div><!--//col-6-->
+									<div class="col-6">
+										<div class="forgot-password text-end"><a href="reset-password.html">Forgot password?</a></div>
+									</div><!--//col-6-->
+								</div><!--//extra-->
+							</div><!--//form-group-->
+							<div class="text-center">
+								<button type="submit" name="signin" class="btn app-btn-primary theme-btn mx-auto">Log In</button>
+							</div>
+						</form>
+						<form action="/register">
+
+							<div class="auth-option text-center pt-5">Not yet a member?.</div>
+							<input class="text-link" value="Sign up" type="submit">
+						</form>
+
+					</div><!--//auth-form-container-->
+
+			    </div><!--//auth-body-->
+
+		    </div><!--//flex-column-->
+	    </div><!--//auth-main-col-->
+	    <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+		    <div class="auth-background-holder">
+		    </div>
+		    <div class="auth-background-mask"></div>
+		    <div class="auth-background-overlay p-3 p-lg-5">
+			    <div class="d-flex flex-column align-content-end h-100">
+				    <div class="overlay-content p-3 p-lg-4 rounded">
+					    <h5 class="mb-3 overlay-title">ยินดีต้อนรับกลับเข้าสู่ Comuthor อีกครั้ง</h5>
+					    <div class="text-title">เริ่มเล่น เริ่มเขียน เริ่มสร้าง มาเริ่มต้นใหม่ที่ Comuthor กันเถอะ</div>
+				    </div>
+				</div>
+		    </div><!--//auth-background-overlay-->
+	    </div><!--//auth-background-col-->
+
+    </div><!--//row-->
+></body>
+
+</html>
