@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+	background: #D3D3D3;
+}
+nav{
+	background: #1D1D1D;
+	height: 75px;
+}
+nav:after{
+	content: '';
+	clear: both;
+	display: table;
+}
+nav .logo{
+	float: left;
+	color: white;
+	font-size: 35px;
+	font-weight: 600;
+	line-height: 20px;
+	padding: 15px;
+	margin-left: 10px;
+	margin-top: 10px;	
+}
+
+.navfour{
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+	background-image: "profile.png";
+	padding: 20px;
+	background: #656565;
+	margin-right: 20px;
+}
+
+.navfour:hover{
+	background-color: #5F5A9C;
+	color: White;
+}
+
+.userpic{
+	margin-left: -7px;
+	margin-top: -15px;
+}
+
+.userpic2{
+	margin-left: -10px;
+	margin-top: -15px;
+	width: 30px;
+}
+
+.userpic3{
+	width: 35px;
+	margin-left: -13px;
+	margin-top: -12px
+}
+
+.userpic4{
+	width: 8px;
+	margin-top: -12px;
+	margin-left: 1px;
+}
+
+
+nav ul{
+	float: right;
+	list-style: none;
+	margin-right: 10px;
+	position: relative;
+	margin-top: -70px;
+	visibility: visible;
+}
+nav ul li{
+	float: left;
+	display: inline-block;
+	margin: 0 5px;
+	padding-top: 15px;
+	
+}
+nav ul li a{
+	color: white;
+	text-decoration: none;
+	line-height: 30px;
+	padding: 5px 10px;
+}
+
+nav ul ul li a:hover{
+	color: cyan;
+	box-shadow: none;
+	
+}
+
+nav ul ul ul{
+	border-top: none
+}
+nav ul li:hover > ul{
+	top: 155px;
+	opacity: 1;
+	visibility: visible;
+	
+}
+
+nav ul ul li{
+	position: relative;
+	float: none;
+	display: list-item;
+	height: 90px;
+	margin-bottom: 5px;
+}
+
+.navfield {
+	width: 25%;
+	position: absolute;
+	top: 75px;
+	border-top: 3px solid cyan;
+	opacity: 10;
+	visibility: hidden;
+	background-color: #656565;
+	border-radius: 100px;
+	transition: top .5s;
+}
+.linkto{
+	left: -50px;
+}
+
+.navfield2 {
+	position: absolute;
+	top: 75px;
+	border-top: 3px solid cyan;
+	opacity: 10;
+	visibility: hidden;
+	background-color: #656565;
+	border-radius: 100px;
+	transition: top .5s;
+	right: 80px;
+	margin-top: -125px;
+	
+}
+
+.topnav {
+  overflow: hidden;
+	width: 600px;
+	margin-top: 5px;
+}
+
+.topnav input[type=text] {
+  float: center;
+  padding:5px;
+	border-radius: 25px;
+	width: 400px;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+	float: center;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+.button {
+	background-color: #535353;
+	font-size: 16px;
+	color: white;
+	padding: 15px 24px;
+	border-radius: 100px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 10px;
+	transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: #FADCA2;
+	color: black;
+}
+
+.header {
+	width: 100%;
+	margin: 40px auto 0px;
+	color: white;
+	background: #535353;
+	text-align: center;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+	margin-bottom: -50px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+form, .content {
+	width: 100%;
+	text-align: center;
+	margin: 50px auto 0px;
+	background: white;
+	padding: 20px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.input-group {
+	margin: 50px 0px 10px 0px;
+}
+
+.input-group label {
+	display: block;
+	text-align: left;
+	margin: 3px;
+}
+
+.input-group input {
+	height: 30px;
+	width: 93%;
+	padding: 5px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+.btn {
+	padding: 5px 10px;
+	width: 100px;
+	float: center;
+	font-size: 15px;
+	color: white;
+	background: #535353;
+	border-radius: 5px;
+	margin: 50px auto 0px;
+	margin-top: -2px;
+
+}
+
+.error {
+	width: 92%;
+	margin: 0px auto;
+	padding: 10px;
+	border: 1px solid #a94442;
+	color: #a94442;
+	background: #f2dede;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.success {
+	color: #3c763d;
+	background: #dff9d8;
+	border: 1px solid #3c763d;
+	margin-bottom: 20px;
+	
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
