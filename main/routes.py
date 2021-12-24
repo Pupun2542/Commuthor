@@ -1,7 +1,7 @@
 from main import db, app
 from flask import render_template, redirect, session, url_for, request
 import MySQLdb
-import backend as services
+from main import backend as services
 
 
 @app.route('/', methods=['GET', 'POST'])
