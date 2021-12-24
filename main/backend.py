@@ -4,7 +4,7 @@ import MySQLdb
 
 def checkdupemail(email):
     cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from user where Email=%s", email)
+    cursor.execute("select * from user where Email=%s", [email])
     records = cursor.fetchone()
     if records is None:
         return True
@@ -13,7 +13,7 @@ def checkdupemail(email):
 
 def checkdupeUser(user):
     cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from user where Username=%s", user)
+    cursor.execute("select * from user where Username=%s", [user])
     records = cursor.fetchone()
     if records is None:
         return True
