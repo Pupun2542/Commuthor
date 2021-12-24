@@ -1,5 +1,5 @@
 from main import db, app
-from flask import render_template, redirect, session, url_for, request
+from flask import render_template, redirect, session, url_for, request, flash, get_flashed_messages
 import MySQLdb
 from main import backend as services
 from main.form import RegisterForm
@@ -40,20 +40,32 @@ def logout():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
+        password = form.password1.data
 
-    if request.method == "POST":
-        if "username" in request.form and "email" in request.form and "password" in request.form:
-            username = request.form['username']
-            email = request.form['email']
-            if services.checkdupeUser(username) and services.checkdupemail(email):
-                password = request.form['password']
-                if request.form['password'] == request.form['c_password']:
-                    cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-                    cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
-                                   (username, email, password))
-                    db.connection.commit()
-                    return redirect(url_for('index'))
-                else:
-                    return "password mismatch"
+        cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
+                       (username, email, password))
+        db.connection.commit()
+        return redirect(url_for('index'))
+    if form.errors != {}:
+        for err_msg in form.errors.values():
+            print(f'error: {err_msg} ')
+    # if request.method == "POST":
+    #     if "username" in request.form and "email" in request.form and "password" in request.form:
+    #         username = request.form['username']
+    #         email = request.form['email']
+    #         if services.checkdupeUser(username) and services.checkdupemail(email):
+    #             password = request.form['password']
+    #             if request.form['password'] == request.form['c_password']:
+    #                 cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+    #                 cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
+    #                                (username, email, password))
+    #                 db.connection.commit()
+    #                 return redirect(url_for('index'))
+    #             else:
+    #                 return "password mismatch"
 
     return render_template("register.html", form=form)
