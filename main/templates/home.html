@@ -1,16 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Comuthor | Home</title>
+	<link rel="stylesheet" href="Assets/css/style.css">
 </head>
+
 <body>
 <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
+    <nav>
+		
+		<a href="Home_User.php"><div class="logo">Comuthor</div></a>
+		<div class="topnav"><input type="text" placeholder="Search..."></div>
+	        <ul class="navall">
+                <li>
+                    <div class="navfour" href="user.php"><img src="Assets/images/profile.png" class="userpic" ></div>
+                        <ul class="navfield">
+                            <li><a href="#createcommu"><img class="linkto" src="Assets/images/Gallery1616.png" 
+                            onMouseOver="this.src='Assets/images/Gallery1616powder.png'" 
+                            onMouseOut="this.src='Assets/images/Gallery1616.png'"></a></li>
+                            <li><a href="#createcommu"><img class="linkto" src="Assets/images/bookshelf1616.png" 
+                            onMouseOver="this.src='Assets/images/bookshelf1616powder.png'"
+                            onMouseOut="this.src='Assets/images/bookshelf1616.png'"></a></li>
+                            <li><a href="#createcommu"><img class="linkto" src="Assets/images/Troohy1616.png"
+                            onMouseOver="this.src='Assets/images/Troohy1616powder.png'" 
+                            onMouseOut="this.src='Assets/images/Troohy1616.png'"></a></li>
+                        </ul>
+                </li>
+			
+			<li><div class="navfour" href="#notifacation" ><img src="Assets/images/Noti.png" class="userpic2"></div></li>
+			
+			<li>
+				<div href="#Groups" class="navfour"><img src="Assets/images/Group.png" class="userpic3"></div>
+					<ul class="navfield">
+						<li><a href="#createcommu"><img class="linkto" src="Assets/images/CreateCommu1616.png"
+						onMouseOver="this.src='Assets/images/CreateCommu1616powder.png'"
+						onMouseOut="this.src='Assets/images/CreateCommu1616.png'"></a></li>
+					</ul>
+			</li>
+		
+			<li>
+				<div href="#Groups" class="navfour"><img src="Assets/images/etc.png" class="userpic4"></div>
+				<ul class="navfield">
+					<li><a href="#createcommu"><img class="linkto" src="Assets/images/Setting1616.png"
+					onMouseOver="this.src='Assets/images/Setting1616powder.png'"
+					onMouseOut="this.src='Assets/images/Setting1616.png'"></a></li>
+					
+					<li><a href="#createcommu"><img class="linkto" src="Assets/images/Scroll1616.png"
+					onMouseOver="this.src='Assets/images/Scroll1616powder.png'"
+					onMouseOut="this.src='Assets/images/Scroll1616.png'"></a></li>
+						
+					<li><a href="#createcommu"><img class="linkto" src="Assets/images/information.png"
+					onMouseOver="this.src='Assets/images/information1616powder.png'" 
+					onMouseOut="this.src='Assets/images/information.png'"></a>
+						<ul class="navfield">
+								<li><a href="#twitter"><img class="linkto" src="Assets/images/Twitter1616.png" onMouseOver="this.src='Assets/images/Twitter1616powder.png'" onMouseOut="this.src='Assets/images/Twitter1616.png'"></a></li>
+								<li><a href="#facebook"><img class="linkto" src="Assets/images/facebook 1616.png" onMouseOver="this.src='Assets/images/facebook 1616powder.png'" onMouseOut="this.src='Assets/images/facebook 1616.png'"></a></li>
+								<li><a href="#discord"><img class="linkto" src="Assets/images/discord1616.png" onMouseOver="this.src='Assets/images/discord1616powder.png'" onMouseOut="this.src='Assets/images/discord1616.png'"></a></li>
+								<li><a href="#e-mail"><img class="linkto" src="Assets/images/mail1616.png" onMouseOver="this.src='Assets/images/mail1616powder.png'" onMouseOut="this.src='Assets/images/mail1616.png'"></a></li>
+								<li><a href="#youtube"><img class="linkto" src="Assets/images/youtube1616.png" onMouseOver="this.src='Assets/images/youtube1616powder.png'" onMouseOut="this.src='Assets/images/youtube1616.png'"></a></li>
+						</ul>
+					</li>
+					
+					<!-- logged in user information -->
+        <?php if (isset($_SESSION['username'])) : ?>
+            <p><a href="Home_Login.php"><img class="linkto" src="Assets/images/logout1616.png" onMouseOver="this.src='Assets/images/logout1616powder.png'" onMouseOut="this.src='Assets/images/logout1616.png'"></a></p>
+        <?php endif ?>
+					
+				</ul>
+			</li>
+					
+		</ul>
+		
+	</nav>
 <div>
     <form action="/logout">
         <input class="text-link" value="logout" type="submit">

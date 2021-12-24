@@ -14,7 +14,7 @@
 <body>
 
 	<nav>
-<!--		<li><a href="Home_Login.php"><div class="logo">Comuthor</div></a></li>-->
+		<div class="logo">Comuthor</div>
 	</nav>
 
 </body>
@@ -72,11 +72,10 @@
 								<button type="submit" name="signin" class="btn app-btn-primary theme-btn mx-auto">Log In</button>
 							</div>
 						</form>
-						<form action="{{url_for('register')}}">
 
-							<div class="auth-option text-center pt-5">Not yet a member?.</div>
-							<input class="text-link" value="Sign up" type="submit">
-						</form>
+							<div class="auth-option text-center pt-5">Not yet a member? <a class="text-link" href="{{url_for('register')}}"> Sign up</a></div>
+							
+
 
 					</div><!--//auth-form-container-->
 
