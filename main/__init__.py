@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_mysqldb import MySQL
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 app = Flask(__name__)
 
@@ -11,6 +13,7 @@ app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "commuthor"
 
 db = MySQL(app)
-
+bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 from main import routes
 

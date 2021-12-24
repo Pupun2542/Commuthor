@@ -1,4 +1,5 @@
 from main import db
+from main import bcrypt
 import MySQLdb
 
 
@@ -18,3 +19,7 @@ def checkdupeUser(user):
     if records is None:
         return True
     return False
+
+
+def encryptpassword(plaintextpassword):
+    return bcrypt.generate_password_hash(plaintextpassword).decode('utf-8')

@@ -5,8 +5,6 @@
 
 {% block body %}
 
-
-<body class="app app-signup p-0">
 <div class="row g-0 app-auth-wrapper">
     <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
         <div class="d-flex flex-column align-content-end">
@@ -30,8 +28,8 @@
                             {{form.password1(class="form-control signup-password", placeholder="Password", required="required")}}
                         </div>
                         <div class="password mb-3">
-                            {{form.password1.label(class="sr-only")}}
-                            {{form.password1(class="form-control signup-password", placeholder="Confirm Password", required="required")}}
+                            {{form.password2.label(class="sr-only")}}
+                            {{form.password2(class="form-control signup-password", placeholder="Confirm Password", required="required")}}
                         </div>
 
                         <div class="text-center">
@@ -67,7 +65,5 @@
 
 </div><!--//row-->
 
-
-</body>
 {% endblock %}
 </html>

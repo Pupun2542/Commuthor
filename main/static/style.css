@@ -8,6 +8,7 @@
 
 body{
 	background: #D3D3D3;
+
 }
 nav{
 	background: #1D1D1D;
@@ -162,7 +163,7 @@ nav ul li:hover > ul{
   }
 }
 
-.button {
+/*.button {
 	background-color: #535353;
 	font-size: 16px;
 	color: white;
@@ -172,7 +173,7 @@ nav ul li:hover > ul{
 	margin-top: 20px;
 	margin-right: 10px;
 	transition-duration: 0.4s;
-}
+}*/
 
 .button:hover {
 	background-color: #FADCA2;
