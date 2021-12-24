@@ -1,6 +1,7 @@
 from main import db, app
 from flask import render_template, redirect, session, url_for, request
 import MySQLdb
+import backend as services
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -41,15 +42,15 @@ def register():
         if "username" in request.form and "email" in request.form and "password" in request.form:
             username = request.form['username']
             email = request.form['email']
-            password = request.form['password']
-            if request.form['password'] == request.form['c_password']:
-                cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
-                               (username, email, password))
-                db.connection.commit()
-                return redirect(url_for('index'))
-
-            else:
-                return "password mismatch"
+            if services.checkdupeUser(username) and services.checkdupemail(email):
+                password = request.form['password']
+                if request.form['password'] == request.form['c_password']:
+                    cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+                    cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
+                                   (username, email, password))
+                    db.connection.commit()
+                    return redirect(url_for('index'))
+                else:
+                    return "password mismatch"
 
     return render_template("register.html")
