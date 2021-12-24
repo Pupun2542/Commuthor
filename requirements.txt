@@ -3,3 +3,4 @@ Flask_MySQLdb==0.2.0
 MySQL-python==1.2.5
 
 mysqlclient~=2.1.0
+WTForms~=3.0.1
