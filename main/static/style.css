@@ -39,6 +39,10 @@ nav .logo{
 	background: #656565;
 	margin-right: 20px;
 }
+.linkto{
+	margin-left: 5px;
+	width: 60px;
+}
 
 .navfour:hover{
 	background-color: #5F5A9C;
@@ -68,11 +72,20 @@ nav .logo{
 	margin-left: 1px;
 }
 
+.navfield{
+	margin-left: -15px;
+}
+
+.navfield:hover{
+	top: 155px;
+	opacity: 1;
+	visibility: visible;
+	
+}
 
 nav ul{
 	float: right;
 	list-style: none;
-	margin-right: 10px;
 	position: relative;
 	margin-top: -70px;
 	visibility: visible;
@@ -81,38 +94,17 @@ nav ul li{
 	float: left;
 	display: inline-block;
 	margin: 0 5px;
-	padding-top: 15px;
-	
-}
-nav ul li a{
-	color: white;
-	text-decoration: none;
-	line-height: 30px;
-	padding: 5px 10px;
-}
-
-nav ul ul li a:hover{
-	color: cyan;
-	box-shadow: none;
-	
+	padding-top: 18px;
 }
 
 nav ul ul ul{
 	border-top: none
 }
+
 nav ul li:hover > ul{
 	top: 155px;
 	opacity: 1;
-	visibility: visible;
-	
-}
-
-nav ul ul li{
-	position: relative;
-	float: none;
-	display: list-item;
-	height: 90px;
-	margin-bottom: 5px;
+	visibility: visible;	
 }
 
 .navfield {
@@ -126,9 +118,6 @@ nav ul ul li{
 	border-radius: 100px;
 	transition: top .5s;
 }
-.linkto{
-	left: -50px;
-}
 
 .navfield2 {
 	position: absolute;
@@ -141,7 +130,6 @@ nav ul ul li{
 	transition: top .5s;
 	right: 80px;
 	margin-top: -125px;
-	
 }
 
 .topnav {
@@ -168,6 +156,7 @@ nav ul ul li{
     margin: 0;
     padding: 10px;
   }
+  
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
