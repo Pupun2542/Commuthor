@@ -2,6 +2,7 @@ from main import db, app
 from flask import render_template, redirect, session, url_for, request
 import MySQLdb
 from main import backend as services
+from main.form import RegisterForm
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -38,6 +39,8 @@ def logout():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    form = RegisterForm()
+
     if request.method == "POST":
         if "username" in request.form and "email" in request.form and "password" in request.form:
             username = request.form['username']
@@ -53,4 +56,4 @@ def register():
                 else:
                     return "password mismatch"
 
-    return render_template("register.html")
+    return render_template("register.html", form=form)
