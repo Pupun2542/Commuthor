@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_mysqldb import MySQL
-from main import routes
 
 app = Flask(__name__)
 
@@ -12,3 +11,5 @@ app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "commuthor"
 
 db = MySQL(app)
+
+from main import routes
