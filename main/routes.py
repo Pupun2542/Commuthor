@@ -1,41 +1,44 @@
-from main import db, app
+from main import db, app, login_manager
 from flask import render_template, redirect, session, url_for, request, flash, get_flashed_messages
 import MySQLdb
 from main import backend as services
+from main.model import user
 from main.form import RegisterForm, LoginForm
+from flask_login import login_user, logout_user, login_required, current_user
 
 
 @app.route('/', methods=['GET', 'POST'])
+def main():
+    return redirect(url_for('index'))
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def index():
-    form = LoginForm
-    # if request.method == 'POST':
-    #     if 'email' in request.form and 'password' in request.form:
-    #         email = request.form['email']
-    #         password = request.form['password']
-    #         cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-    #         cursor.execute("select * from user where Email=%s and Password=%s", (email, password))
-    #         records = cursor.fetchone()
-    #         if records is not None:
-    #             # if records['Email'] == email and records['Password'] == password:
-    #             session['loginsuccess'] = True
-    #             return redirect(url_for('home'))
-    #         else:
-    #             return redirect(url_for('index'))
-    return render_template("login.html", form=form)
+    form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = user.query.filter_by(Email=form.email.data).first()
+        if attempted_user and attempted_user.check_password_correction(
+                attempted_password=form.password.data
+        ):
+            login_user(attempted_user)
+            flash(f'Success! You are logged in as: {attempted_user.UserID}', category='success')
+            return redirect(url_for('home'))
+        else:
+            flash('Username and password are not match! Please try again', category='danger')
+
+    return render_template('login.html', form=form)
 
 
 @app.route("/home")
+@login_required
 def home():
-    if session['loginsuccess']:
-        return render_template("home.html")
-    else:
-        return redirect(url_for('index'))
+    return render_template("home.html")
 
 
 @app.route("/logout")
 def logout():
-    session['loginsuccess'] = False
+    logout_user()
+    flash("logged out", category='info')
     return redirect(url_for('index'))
 
 
@@ -43,14 +46,11 @@ def logout():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        username = form.username.data
-        email = form.email.data
-        password = services.encryptpassword(form.password1.data)
-
-        cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("insert into commuthor.user(UserName, Email, Password) values(%s,%s,%s)",
-                       (username, email, password))
-        db.connection.commit()
+        user_to_create = user(UserName=form.username.data,
+                              Email=form.email.data,
+                              Password=form.password1.data)
+        db.session.add(user_to_create)
+        db.session.commit()
         return redirect(url_for('index'))
     if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
