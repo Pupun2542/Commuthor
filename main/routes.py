@@ -5,8 +5,10 @@ from flask import render_template, redirect, session, url_for, request, flash, g
 import MySQLdb
 from main import backend as services
 from main.model import user
-from main.form import RegisterForm, LoginForm
+from main.form import RegisterForm, LoginForm, ProfileForm
 from flask_login import login_user, logout_user, login_required, current_user
+# import firebase_admin
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -60,3 +62,19 @@ def register():
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
     return render_template("register.html", form=form)
+
+
+@app.route("/Profile", methods=['GET', 'POST'])
+@login_required
+def profile():
+    form = ProfileForm()
+    if form.validate_on_submit():
+        db.session.update(UserName=form.username,
+                          Email=form.email,
+                          SMLink=form.SMLink,
+                          Privacy=form.Privacy
+                          )
+        db.session.commit()
+        return redirect(url_for('profile'))
+
+    render_template('profile.html', form=form, User=current_user)
