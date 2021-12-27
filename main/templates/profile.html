@@ -10,51 +10,47 @@
 
 <body>
 
-<div>
-    <nav>
-        <a href="Home_User.php">
-            <div class="logo">Comuthor</div>
-        </a>
-        <div class="topnav"><input type="text" placeholder="Search..."></div>
-        <ul class="navall">
-            <li>
-                <div class="navfour" href="user.php"><img src="static/images/profile.png" class="userpic"></div>
-            </li>
+    <div>
+        <nav>
+            <a href="Home_User.php"><div class="logo">Comuthor</div></a>
+            <div class="topnav"><input type="text" placeholder="Search..."></div>
+            <ul class="navall">
+                <li>
+                    <div class="navfour" href="#profile"><img src="static/images/profile.png" class="userpic"></div>
+                </li>
 
-            <li>
-                <div class="navfour" href="#notifacation"><img src="static/images/Noti.png" class="userpic2"></div>
-            </li>
+                <li>
+                    <div class="navfour" href="#notifacation"><img src="static/images/Noti.png" class="userpic2"></div>
+                </li>
 
-            <li>
-                <div href="#Groups" class="navfour"><img src="static/images/Group.png" class="userpic3"></div>
-                <ul class="navfield">
-                    <li>
-                        <div href="#createcommu" class="createcommuicon"><img src="static/images/CreateCommu.png"
-                                                                              class="create"></div>
-                    </li>
-                </ul>
-            </li>
+                <li>
+                    <div class="navfour" href="#Groups"><img src="static/images/Group.png" class="userpic3"></div>
+                    <ul class="navfield">
+                        <li>
+                            <div href="#createcommu" class="createcommuicon"><img src="static/images/CreateCommu.png"
+                                                                                class="create"></div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div href="#Groups" class="navfour"><img src="static/images/etc.png" class="userpic4"></div>
+                    <ul class="navfield">
+                        <div class="etcicon"><img class="settingicon" src="static/images/Icon.png" action=""></div>
 
-            <li>
-                <div href="#Groups" class="navfour"><img src="static/images/etc.png" class="userpic4"></div>
-                <ul class="navfield">
-                    <div class="etcicon"><img class="settingicon" src="static/images/Icon.png" action=""></div>
+                        <div class="etcicon"><img class="scrollicon" src="static/images/Scroll.png"></div>
 
-                    <div class="etcicon"><img class="scrollicon" src="static/images/Scroll.png"></div>
-
-                    <div class="etcicon">
-                        <button type="button" class="logouticon"><i
-                                style="background-image: url('static/images/logout.png')"></i><a
-                                href="{{url_for('logout')}}"></a></button>
-                        <img class="logouticon" src="static/images/logout.png" action="{{url_for('logout')}}">
-                    </div>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-
-</div>
+                        <div class="etcicon">
+                            <button type="button" class="logouticon"><i
+                                    style="background-image: url('static/images/logout.png')"></i><a
+                                    href="{{url_for('logout')}}"></a></button>
+                            <img class="logouticon" src="static/images/logout.png" action="{{url_for('logout')}}">
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
 </body>
 
 </html>
