@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from main import db, app, login_manager
 from flask import render_template, redirect, session, url_for, request, flash, get_flashed_messages
 import MySQLdb
@@ -14,13 +16,15 @@ def main():
 
 @app.route('/login', methods=['GET', 'POST'])
 def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         attempted_user = user.query.filter_by(Email=form.email.data).first()
         if attempted_user and attempted_user.check_password_correction(
                 attempted_password=form.password.data
         ):
-            login_user(attempted_user)
+            login_user(attempted_user, duration=timedelta(hours=24), remember=form.rememberme)
             flash(f'Success! You are logged in as: {attempted_user.UserID}', category='success')
             return redirect(url_for('home'))
         else:
